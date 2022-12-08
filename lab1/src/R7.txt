@@ -1,0 +1,153 @@
+
+!
+! Last configuration change at 10:43:01 UTC Thu Dec 8 2022
+!
+version 15.7
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$iYMV$LQIicj15FSaVsDqPpB.gn.
+enable password eve1
+!
+no aaa new-model
+!
+!
+!
+no process cpu extended history
+no process cpu autoprofile hog
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+redundancy
+!
+no cdp run
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Ethernet0/0
+ no shutdown
+ no ip address
+ duplex auto
+ no cdp enable
+ no mop enabled
+!
+interface Ethernet0/0.10
+ no shutdown
+ encapsulation dot1Q 10
+ ip address 10.0.10.2 255.255.255.0
+ no cdp enable
+!
+interface Ethernet0/0.20
+ no shutdown
+ encapsulation dot1Q 20
+ ip address 10.0.20.2 255.255.255.0
+ no cdp enable
+!
+interface Ethernet0/1
+ no shutdown
+ no ip address
+ shutdown
+ duplex auto
+ no cdp enable
+!
+interface Ethernet0/2
+ no shutdown
+ no ip address
+ shutdown
+ duplex auto
+ no cdp enable
+!
+interface Ethernet0/3
+ no shutdown
+ no ip address
+ shutdown
+ duplex auto
+ no cdp enable
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+!
+no service-routing capabilities-manager
+ipv6 ioam timestamp
+!
+snmp-server community public RO
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ password eve
+ login
+ transport input none
+!
+!
+end
+
