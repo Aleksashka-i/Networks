@@ -1,3 +1,4 @@
 # lab 1
 
-![My Image](images/pic3.png)
+Была построена конфигурация следующего вида:
+![My Image](images/pic3.png =250x)
