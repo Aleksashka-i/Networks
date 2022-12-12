@@ -1,6 +1,6 @@
 
 !
-! Last configuration change at 21:01:43 UTC Fri Dec 9 2022
+! Last configuration change at 12:43:37 UTC Mon Dec 12 2022
 !
 version 15.7
 service timestamps debug datetime msec
@@ -140,8 +140,7 @@ ip forward-protocol nd
 !
 no ip http server
 no ip http secure-server
-ip nat pool nat_pool 172.16.0.10 172.16.0.20 netmask 255.255.255.0
-ip nat inside source list 1 pool nat_pool
+ip nat inside source list 1 interface Ethernet0/1 overload
 !
 no service-routing capabilities-manager
 ipv6 ioam timestamp
