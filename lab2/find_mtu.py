@@ -46,7 +46,7 @@ if __name__ == "__main__":
     print_verbose(args.verbose, f'OS: {platform.system().lower()}.')
 
     print_verbose(args.verbose, f'Checking {args.host}...')
-    if not try_ping(args.host, 1, args.cnt, args.verbose):
+    if not try_ping(args.host, 0, args.cnt, args.verbose):
         print('Provided host is non-existent or unavailable.')
         exit(1)
     
