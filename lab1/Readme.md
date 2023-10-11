@@ -1,15 +1,15 @@
 # lab 1
-Работа выполнена в EVE-NG с использованием Cisco.
+The work was done in EVE-NG using Cisco.
 
-Была построена конфигурация следующего вида:
+The following configuration was built:
 ![pic3](images/pic3.png)
 
-Пинг на левом VPC (vlan 10):
+Ping left VPC (vlan 10):
 ![pic1](images/pic1.png)
 
-Пинг на правом VPC (vlan 20):
+Ping right VPC (vlan 20):
 ![pic2](images/pic2.png)
 
-В сети натсроен протокол STP (в частности, выбран был rapid PVST). Коммутатор уровня распределения является корнем сети для обоих VLAN. Линк между коммутаторами уровня доступа заблокирован.
+The network is based on the STP protocol (in particular, rapid PVST was selected). The distribution layer switch is the network root for both VLANs. The link between the access layer switches is blocked.
 
-В папке src можно найти фаул с лабораторной (в формате .unl), а также конфигурации с сетевых устройств.
+In the src folder you can find the lab file (in .unl format) as well as configurations from network devices.
