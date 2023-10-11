@@ -1,13 +1,14 @@
 # lab 4
-Работа выполнена в EVE-NG с использованием Cisco.
+The work was done in EVE-NG using Cisco.
 
-Была построена конфигурация следующего вида:
+The following configuration was built:
 ![pic1](images/pic1.png)
 
-В топологии заданы 2 тунеля, R4 — R2 (GRE) и R4 — R3 (GRE + IPSEC). 
-В каждом тунеле MTU = 1400, MSS = 1360. IPSec настроен с методом шифрования 3DES, алгоритмом шифрования MD5, протоколом DH.
+2 tunnels are defined in the topology, R4 -- R2 (GRE) and R4 -- R3 (GRE + IPSEC). 
+In each tunnel MTU = 1400, MSS = 1360. IPSec is configured with 3DES encryption method, MD5 encryption algorithm, DH protocol.
 
-Пинганём VPC2(10.0.20.2) c VPC1(10.0.10.2). Выведем trace, чтобы посмотреть, как пакеты добираются до VPC2:
+
+Let's ping VPC2(10.0.20.2) with VPC1(10.0.10.2). Let's output trace to see how packets get to VPC2:
 ```
 VPCS> show ip
 
@@ -35,7 +36,7 @@ VPCS> ping 10.0.20.2
 84 bytes from 10.0.20.2 icmp_seq=5 ttl=62 time=72.764 ms
 ```
 
-Пинганём VPC3(10.0.30.2) c VPC1(10.0.10.2). Выведем trace, чтобы посмотреть, как пакеты добираются до VPC3:
+Let's ping VPC3(10.0.30.2) c VPC1(10.0.10.2). Let's output trace to see how packets get to VPC3:
 ```
 VPCS> show ip        
 
@@ -63,7 +64,7 @@ VPCS> ping 10.0.30.2
 84 bytes from 10.0.30.2 icmp_seq=5 ttl=62 time=44.646 ms
 ```
 
-Рассмотрим параметры шифрования (вывод с R4) и убедимся, что оно работает:
+Let's look at the encryption parameters (output from R4) and see if it works:
 ```
 Router#show crypto session
 Crypto session current status
@@ -78,4 +79,4 @@ Peer: 10.0.3.1 port 500
   IPSEC FLOW: permit 47 host 10.0.1.1 host 10.0.3.1 
         Active SAs: 2, origin: crypto map
 ```
-В папке src можно найти фаул с лабораторной (в формате .unl), а также конфигурации с сетевых устройств.
+In the src folder you can find the faool from the lab (in .unl format), as well as configurations from network devices.
