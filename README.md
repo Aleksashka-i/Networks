@@ -1,9 +1,9 @@
 # networks
 
-Студентка: Саша Иевлева (БПМИ205)
+Student: Aleksandra Ievleva
 
-* Репозиторий для лабораторных по курсу "Компьютерные сети":
-    1. [Реализация небольшой сети офиса](lab1/)
-    2. [Реализация скрипта для тестирования MTU в канале](lab2/)
-    3. [Модернизация сети офиса из задания 1](lab3/)
-    4. [Построение VPN тоннелей между офисами](lab4/)
+* Repository for labs for the course "Computer Networks":
+    1. [Realizing a small office network](lab1/)
+    2. [Implementing a script to test MTU in a channel](lab2/)
+    3. [Modernization of the office network from task 1](lab3/)
+    4. [Building VPN tunnels between offices](lab4/)
