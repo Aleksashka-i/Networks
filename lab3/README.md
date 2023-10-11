@@ -1,28 +1,21 @@
-# UPD
-Исправлены недочёты: динамическая раздача адресов NAT на роутере R7 была изменена на статическую (many to one nat):
-```
-ip nat inside source list 1 interface Ethernet0/1 overload
-```
-Соответственно был добавлен файл new_lab3.unl и обновлён R7.txt. Также картинки для эстетичности были заменены на вставки кода.
-
 # lab 3
-Работа выполнена в EVE-NG с использованием Cisco.
+The work was done in EVE-NG using Cisco.
 
-Была построена конфигурация следующего вида:
+The following configuration was built:
 ![pic1](images/pic1.png)
 
-Сохранено из lab1:
-В сети настроен протокол STP (в частности, выбран был rapid PVST). Коммутатор уровня распределения является корнем сети для обоих VLAN. Линк между коммутаторами уровня доступа заблокирован.
+From lab1:
+The network is configured with the STP protocol (specifically, rapid PVST was selected). The distribution layer switch is the root of the network for both VLANs. The link between the access layer switches is blocked.
 
-Добавлено:
- 1) Все клиенты получают сетевые настройки по DHCP.
- 2) Первые 10 IP аддресов исключены из выдачи клиентам.
- 3) Настроена NAT: клиенты могут обращаться к верхнему маршрутизатору (R2, ip address: 172.16.0.2) и получать ответ. При этом в R2 нет дополнительных маршрутов в локальную сеть.
+Added:
+ 1) All clients receive network settings via DHCP.
+ 2) The first 10 IP addresses are excluded from being issued to clients.
+ 3) NAT is configured: clients can contact the upstream router (R2, ip address: 172.16.0.2) and receive a response. There are no additional routes to the LAN in R2.
 
-Выводы с левого VPC:
-  1) Запросили настройки по DHCP.
-  2) Проверили, что можно пингануть правого VPC (и получить ответ).
-  3) Проверили, что можем пингануть верхний маршрутизатор (и получить ответ).
+Outputs from the left VPC:
+  1) Requested settings via DHCP.
+  2) Verified that we can ping the right VPC (and get a response).
+  3) Verified that we can ping the top router (and get a response).
 ```
 VPCS> ip dhcp
 DDORA IP 10.0.10.11/24 GW 10.0.10.2
@@ -44,8 +37,7 @@ VPCS> ping 172.16.0.2
 84 bytes from 172.16.0.2 icmp_seq=5 ttl=254 time=160.383 ms
 ```
 
-Аналогичная ситуация для правого VPC:
-  0) единственное отличие, что для первого пакета истёк timeout, просто предыдущий скрин был сделан после того, как левый VPC уже получил mac адрес верхнего маршрутизатора (были пинги до скрина). А для правого это был первый пинг, так что было дольше.
+Right VPC:
 ```
 VPCS> ip dhcp
 DDORA IP 10.0.20.11/24 GW 10.0.20.2
@@ -67,7 +59,7 @@ VPCS> ping 172.16.0.2
 84 bytes from 172.16.0.2 icmp_seq=5 ttl=254 time=96.615 ms
 ```
 
-И последний вывод, демонстрирующий, что R2 не может отправлять пакеты клиентам сети.
+Output, demonstrating that R2 cannot send packets to network clients.
 ```
 Router#ping 10.0.10.1       
 Type escape sequence to abort.
@@ -76,4 +68,4 @@ Sending 5, 100-byte ICMP Echos to 10.0.10.1, timeout is 2 seconds:
 Success rate is 0 percent (0/5)
 ```
 
-В папке src можно найти файл с лабораторной (в формате .unl), а также конфигурации с сетевых устройств.
+In the src folder you can find the lab file (in .unl format) as well as configurations from network devices.
