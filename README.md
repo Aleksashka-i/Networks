@@ -1,4 +1,4 @@
-# networks
+# Networks
 
 Student: Aleksandra Ievleva
 
