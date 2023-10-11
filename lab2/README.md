@@ -1,10 +1,10 @@
 # lab 2
 
-Скрипт (python) для поиска MTU с помощью бинарного поиска:
+Script (python) to find MTU using binary search:
 
-Скрипт выполняется на macos и linux (в Dockerfile образ ubuntu:22.04)
+The script runs on macos and linux (in Dockerfile image ubuntu:22.04)
 
-У скрипта имеются следующие параметры:
+The script has the following parameters:
 
 ```
 python3 find_mtu.py -h
@@ -22,14 +22,14 @@ options:
   -c CNT, --cnt CNT  number of packages
 ```
 
-Сборка и запуска образа:
+Configure and run image:
 
 ``` 
 docker build -t find_mtu .
 docker run --rm find_mtu hostname
 ```
 
-Пример запуска скрипта:
+Example:
 ```
 python3 find_mtu.py google.com -v     
 OS: darwin.
